@@ -2,7 +2,7 @@
 
 A visual, tested walkthrough: capture an Android app's HTTPS requests with mitmproxy, find the API behind each screen, and export the data with Python. It uses an [open-source shopping app](https://github.com/Hasuk1/dummyjson_products) and the public [DummyJSON](https://dummyjson.com/docs/products) API, then covers Play services, Magisk root, system CA trust, and certificate pinning.
 
-**Read the guide:** start at [docs/index.md](docs/index.md), or open the published site (GitHub Pages) linked in this repository's About section.
+**Read the guide online:** https://uoloki.github.io/android-app-scraping-guide/ (or browse [docs/index.md](docs/index.md) on GitHub).
 
 ## What's in the repository
 
@@ -36,3 +36,4 @@ Work only with apps and services you are authorized to inspect.
 ## License
 
 The code in `scraper/`, `examples/`, and `hooks/` is under the [MIT License](LICENSE). The guide text and screenshots in `docs/` are under [CC BY-NC 4.0](LICENSE-docs.md): free to share and adapt for non-commercial use with credit.
+
