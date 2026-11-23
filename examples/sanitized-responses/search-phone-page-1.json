@@ -1,0 +1,49 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://dummyjson.com/products/search?skip=20&limit=20&q=phone"
+  },
+  "response": {
+    "total": 23,
+    "skip": 20,
+    "limit": 3,
+    "products": [
+      {
+        "id": 134,
+        "title": "Vivo S1",
+        "description": "The Vivo S1 is a stylish and mid-range smartphone offering a blend of design and performance. It features a vibrant display, capable camera system, and reliable functionality.",
+        "category": "smartphones",
+        "price": 249.99,
+        "discountPercentage": 10.17,
+        "rating": 3.5,
+        "stock": 50,
+        "brand": "Vivo",
+        "thumbnail": "https://cdn.dummyjson.com/product-images/smartphones/vivo-s1/thumbnail.webp"
+      },
+      {
+        "id": 135,
+        "title": "Vivo V9",
+        "description": "The Vivo V9 is a smartphone known for its sleek design and emphasis on capturing high-quality selfies. It features a notch display, dual-camera setup, and a modern design.",
+        "category": "smartphones",
+        "price": 299.99,
+        "discountPercentage": 17.67,
+        "rating": 3.6,
+        "stock": 82,
+        "brand": "Vivo",
+        "thumbnail": "https://cdn.dummyjson.com/product-images/smartphones/vivo-v9/thumbnail.webp"
+      },
+      {
+        "id": 136,
+        "title": "Vivo X21",
+        "description": "The Vivo X21 is a premium smartphone with a focus on cutting-edge technology. It features an in-display fingerprint sensor, a high-resolution display, and advanced camera capabilities.",
+        "category": "smartphones",
+        "price": 499.99,
+        "discountPercentage": 17.41,
+        "rating": 4.26,
+        "stock": 7,
+        "brand": "Vivo",
+        "thumbnail": "https://cdn.dummyjson.com/product-images/smartphones/vivo-x21/thumbnail.webp"
+      }
+    ]
+  }
+}

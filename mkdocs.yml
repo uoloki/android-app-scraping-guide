@@ -1,0 +1,61 @@
+site_name: From Android screen to Python scraper
+site_description: Capture an Android app's HTTPS requests with mitmproxy, find its API, and export the data with Python.
+site_url: !ENV [SITE_URL, ""]
+repo_url: !ENV [REPO_URL, ""]
+edit_uri: edit/main/docs/
+copyright: >-
+  Copyright &copy; 2026 uoloki. Guide text and screenshots:
+  <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>.
+  Code: MIT.
+
+theme:
+  name: material
+  features:
+    - navigation.footer
+    - navigation.top
+    - content.code.copy
+    - search.highlight
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+hooks:
+  - hooks/repo_links.py
+
+nav:
+  - Overview: index.md
+  - Basic path:
+      - 1. Build the sample app: 01-environment-setup.md
+      - 2. Intercept HTTPS: 02-https-interception.md
+      - 3. Find the API: 03-api-discovery.md
+      - 4. Export with Python: 04-python-scraper.md
+  - Advanced path:
+      - 5. Transfer split APKs: 05-dual-emulator-apks.md
+      - 6. Root with Magisk: 06-rootavd-magisk.md
+      - 7. Certificates and pinning: 07-certificates-and-pinning.md
+      - 8. Verified setups: 08-compatibility.md
+  - 9. Authorized real app: 09-authorized-real-app.md
+  - Troubleshooting: troubleshooting.md
+
+markdown_extensions:
+  - tables
+  - attr_list
+  - md_in_html
+  - admonition
+  - toc:
+      permalink: true
+  - pymdownx.highlight
+  - pymdownx.superfences
+
+validation:
+  omitted_files: warn
+  absolute_links: info
+  unrecognized_links: warn
