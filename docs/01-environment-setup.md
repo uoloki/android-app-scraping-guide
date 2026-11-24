@@ -69,6 +69,6 @@ adb shell monkey -p com.example.dummyjson_products 1
 
 The app may report a network error until you install the CA in [chapter 2](02-https-interception.md). Once the CA is installed, reopening the app should show products:
 
-<img src="screenshots/04-product-list.png" alt="The debug app displaying the product list" width="360">
+![The debug app displaying the product list](screenshots/04-product-list.png){ width="360" }
 
 Android applies `debug-overrides` only to debuggable builds ([network security configuration](https://developer.android.com/privacy-and-security/security-config)). A release build of the same app would ignore it.

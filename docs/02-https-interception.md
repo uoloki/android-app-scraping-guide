@@ -33,13 +33,13 @@ adb push "$env:USERPROFILE\.mitmproxy\mitmproxy-ca-cert.cer" /sdcard/Download/mi
 
 On the Pixel 6 / API 33 image, open **Settings → Security → More security settings → Encryption & credentials → Install a certificate → CA certificate**. Confirm the warning and choose the `.cer` file from Downloads. Use **CA certificate**, not Wi-Fi certificate.
 
-<img src="screenshots/42-ca-certificate-choice.png" alt="Android certificate type menu with CA certificate selected" width="360">
+![Android certificate type menu with CA certificate selected](screenshots/42-ca-certificate-choice.png){ width="360" }
 
-<img src="screenshots/02-ca-install-warning.png" alt="Android CA installation warning" width="360">
+![Android CA installation warning](screenshots/02-ca-install-warning.png){ width="360" }
 
 Verify the certificate appears under **Trusted credentials → User**:
 
-<img src="screenshots/45-user-trusted-ca.png" alt="mitmproxy CA visible in Android's User trusted credentials" width="360">
+![mitmproxy CA visible in Android's User trusted credentials](screenshots/45-user-trusted-ca.png){ width="360" }
 
 Android puts this certificate in the **User** store. The sample's `debug-overrides` lets its debug build trust that store; many release apps use only **System** CAs. Installing a user CA does not change their trust settings. See [mitmproxy's certificate guide](https://docs.mitmproxy.org/stable/concepts/certificates/) for the public certificate and private key files.
 

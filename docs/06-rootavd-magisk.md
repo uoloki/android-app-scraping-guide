@@ -58,7 +58,7 @@ In Device Manager, **Cold Boot** starts an AVD without a saved snapshot. For thi
 
 Open Magisk. If it says **Requires additional setup**, complete that prompt and reboot before checking root.
 
-<img src="screenshots/10-magisk-api31-incomplete.png" alt="Magisk requested additional setup" width="360">
+![Magisk requested additional setup](screenshots/10-magisk-api31-incomplete.png){ width="360" }
 
 ## 3. Verify root and Shell permission
 
@@ -73,8 +73,8 @@ Look for `uid=0` and `context=u:r:magisk:s0`, as in the screenshot. The Magisk a
 
 ![Live adb output confirms API 31, x86_64, and Magisk root](screenshots/39-adb-verification-command.png)
 
-<img src="screenshots/11-magisk-api31-ready.png" alt="Magisk ready after setup and reboot" width="360">
+![Magisk ready after setup and reboot](screenshots/11-magisk-api31-ready.png){ width="360" }
 
-<img src="screenshots/12-magisk-shell-policy.png" alt="Shell superuser policy enabled" width="360">
+![Shell superuser policy enabled](screenshots/12-magisk-shell-policy.png){ width="360" }
 
 If **Requires additional setup** returns after reboot, stop before installing modules. Follow the [Magisk troubleshooting row](troubleshooting.md) and compare your image and Magisk version with [the setup used here](08-compatibility.md). If those match, Magisk's [installation guide](https://topjohnwu.github.io/Magisk/install.html) is the next place to look.

@@ -32,13 +32,13 @@ This is the same route as [chapter 2](02-https-interception.md). Push only the p
 
 In Android Settings, open **Security → Encryption & credentials → Install a certificate → CA certificate** and select the `.cer` file. Menu names vary. Choose **CA certificate**, not Wi-Fi certificate. Confirm it appears in User trusted credentials.
 
-<img src="screenshots/42-ca-certificate-choice.png" alt="Choose the CA certificate category in Android Settings" width="360">
+![Choose the CA certificate category in Android Settings](screenshots/42-ca-certificate-choice.png){ width="360" }
 
-<img src="screenshots/13-ca-api31-installed.png" alt="Mitmproxy CA installed in Android" width="360">
+![Mitmproxy CA installed in Android](screenshots/13-ca-api31-installed.png){ width="360" }
 
 Try the demo's unpinned button now. It fails on this API 31 Play image because the app does not trust the user CA. The rebuilt sample app in [chapter 1](01-environment-setup.md) uses `debug-overrides` to trust that CA without root.
 
-<img src="screenshots/14-api31-user-ca-fails.png" alt="The unpinned demo request failing with user CA alone" width="360">
+![The unpinned demo request failing with user CA alone](screenshots/14-api31-user-ca-fails.png){ width="360" }
 
 Certificate pinning adds another check: the app expects a particular server certificate or public key. It can reject mitmproxy's certificate even after Android trusts the proxy CA. In this demo, moving the CA into system trust fixes the unpinned request, but the pinned buttons still fail.
 
@@ -72,13 +72,13 @@ On other Android versions, the module may use the Conscrypt APEX certificate loc
 
 ![Live root shell shows the copied CA and Magisk module](screenshots/40-system-ca-command.png)
 
-<img src="screenshots/17-magisk-trust-module.png" alt="AlwaysTrustUserCerts active in Magisk" width="360">
+![AlwaysTrustUserCerts active in Magisk](screenshots/17-magisk-trust-module.png){ width="360" }
 
 These two screenshots are from Charles, but they show what to look for in Android Settings: the proxy CA under **User** after installation, then under **System** once it is in system trust. The mitmproxy certificate makes the same move.
 
 | Installed in User credentials | Present in System credentials |
 | --- | --- |
-| <img src="screenshots/52-charles-ca-user.png" alt="Charles Proxy CA listed under Android User trusted credentials" width="300"> | <img src="screenshots/53-charles-ca-system.png" alt="Charles Proxy CA visible under Android System trusted credentials" width="300"> |
+| ![Charles Proxy CA listed under Android User trusted credentials](screenshots/52-charles-ca-user.png){ width="300" } | ![Charles Proxy CA visible under Android System trusted credentials](screenshots/53-charles-ca-system.png){ width="300" } |
 
 ## 3. Compare unpinned and pinned requests
 
@@ -90,9 +90,9 @@ Open the demo and try its three request buttons while watching mitmdump:
 | Network-config pinned | Failed |
 | OkHttp pinned | Failed with an explicit pinning error |
 
-<img src="screenshots/15-api31-system-ca-unpinned.png" alt="Unpinned request succeeded through mitmproxy" width="360">
+![Unpinned request succeeded through mitmproxy](screenshots/15-api31-system-ca-unpinned.png){ width="360" }
 
-<img src="screenshots/16-api31-pinned-fail.png" alt="Pinned requests still failed with system CA trust" width="360">
+![Pinned requests still failed with system CA trust](screenshots/16-api31-pinned-fail.png){ width="360" }
 
 So the route and CA trust work. The pinned buttons fail because of the app's own checks: one uses pins declared in its [network security configuration](https://developer.android.com/privacy-and-security/security-config), the other uses OkHttp's `CertificatePinner`.
 
@@ -115,6 +115,6 @@ frida -U -n 'SSL Pinning Demo' -l .\examples\frida\okhttp-demo-unpin.js -q --ete
 
 Press **OKHTTP PINNED REQUEST** again. The button should turn green and mitmproxy should show `GET https://rsa8192--untrusted-root.testserver.host/`. The script hooks `okhttp3.CertificatePinner.check` and `check$okhttp` for that demo hostname.
 
-<img src="screenshots/22-frida-okhttp-unpinned.png" alt="Targeted Frida hook passed the demo's OkHttp request" width="360">
+![Targeted Frida hook passed the demo's OkHttp request](screenshots/22-frida-okhttp-unpinned.png){ width="360" }
 
 For missing requests, TLS errors, and cleanup after the exercise, use [troubleshooting](troubleshooting.md). After removing the user CA, reboot so the module updates its system copy.

@@ -10,7 +10,7 @@ In Android Studio's **SDK Manager**, install both API 31 x86_64 system images. I
 
 | Play services device | AOSP inspection device |
 | --- | --- |
-| <img src="screenshots/29-avd-play-image.png" alt="API 31 Google Play x86_64 image selected in Android Studio" width="440"> | <img src="screenshots/30-avd-aosp-image.png" alt="API 31 AOSP x86_64 image selected in Android Studio" width="440"> |
+| ![API 31 Google Play x86_64 image selected in Android Studio](screenshots/29-avd-play-image.png){ width="440" } | ![API 31 AOSP x86_64 image selected in Android Studio](screenshots/30-avd-aosp-image.png){ width="440" } |
 
 The [sample app](https://github.com/Hasuk1/dummyjson_products) has no Play Store listing. Build its bundle locally, install it on the Play device, and transfer all installed APK files to AOSP.
 
@@ -34,7 +34,7 @@ adb shell pm path com.example.dummyjson_products
 
 Look at the `pm path` output. This build has `base.apk`, `split_config.en.apk`, and `split_config.xxhdpi.apk`. [bundletool](https://developer.android.com/tools/bundletool) builds a set for this device's language and screen density, which is why there are three files. Your app may have a different set; copy every path your device prints.
 
-<img src="screenshots/18-play-avd-installed-app.png" alt="The bundle-installed app running on the Play image" width="360">
+![The bundle-installed app running on the Play image](screenshots/18-play-avd-installed-app.png){ width="360" }
 
 ## 2. Pull all splits and install them on AOSP
 
@@ -64,7 +64,7 @@ adb shell monkey -p com.example.dummyjson_products 1
 
 Open the app on AOSP and check that the product list loads.
 
-<img src="screenshots/19-aosp-transferred-splits.png" alt="Transferred app displaying products on AOSP" width="360">
+![Transferred app displaying products on AOSP](screenshots/19-aosp-transferred-splits.png){ width="360" }
 
 ## Optional: export the installed app with SAI
 
@@ -79,8 +79,8 @@ Add-Type -AssemblyName System.IO.Compression.FileSystem
 
 ![A copy of the SAI APKS opened as ZIP: base.apk plus both configuration splits](screenshots/43-sai-apks-archive.png)
 
-<img src="screenshots/20-sai-export-splits.png" alt="SAI backup selection" width="360">
+![SAI backup selection](screenshots/20-sai-export-splits.png){ width="360" }
 
-<img src="screenshots/21-sai-backup-complete.png" alt="SAI backup completed" width="360">
+![SAI backup completed](screenshots/21-sai-backup-complete.png){ width="360" }
 
 If `install-multiple` reports a missing split, compare the transfer folder with every line of `pm path`. Stop on a signature or ABI error and use the matching [troubleshooting row](troubleshooting.md) before trying again. An app can install cleanly on AOSP and still refuse to run there if it depends on Play services or device checks. This example covers a locally built bundle and an AOSP SAI export, not a Play Store download.
